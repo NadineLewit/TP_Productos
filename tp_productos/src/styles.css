@@ -1,69 +1,80 @@
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ul,
+li {
+  list-style: none;
+  white-space: nowrap;
 }
 
-/* styles.css */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+li {
+  display: inline;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
+img {
+  margin-top: -16px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 2rem;
+/* Main container */
+
+.main-container {
+  width: 500px;
+  height: 280px;
+  margin: 0 auto;
 }
 
-main {
+/* Slider container */
+.slider-container {
+  position: relative;
+  height: 100%
+}
+
+/* dots carrusel */
+.dots-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
 }
 
-.product-item {
-  border: 1px solid #ccc;
-  padding: 1rem;
+.dot-container-item {
+  margin: 8px 3px;
   cursor: pointer;
-  width: 300px;
-  transition: transform 0.2s ease-in-out;
+  font-size: 12px;
+  text-align: center;
 }
 
-.product-item:hover {
-  transform: scale(1.05);
+/* Arrows */
+.leftArrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #af2b2b;
+  z-index: 1;
+  cursor: pointer;
 }
 
-select,
-input[type="text"] {
-  padding: 0.5rem;
-  margin: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 32px;
+  font-size: 50px;
+  font-weight: 700;
+  color: #ca3131;
+  z-index: 1;
+  cursor: pointer;
 }
 
-#productDetail {
-  padding: 1rem;
-  border-top: 1px solid #ccc;
+.container-images {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  overflow: hidden;
 }
 
-/* Optional: Style for the product detail section */
-#productDetail h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Optional: Style for the product description */
-#productDetail p {
-  font-size: 1rem;
-  margin: 0.5rem 0;
+div.active {
+  background: #ccc;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
 }
