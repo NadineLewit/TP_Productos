@@ -1,11 +1,11 @@
 
 import 'bootstrap';
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import React, {  useRef, useState, useEffect } from 'react';
 // import './styles.css'
 import { data } from './data'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Button, CardGroup, Card, CardImg, CardBody, CardTitle, CardText, CardSubtitle, CardLink } from 'reactstrap';
 
 
 function Home() {
@@ -40,7 +40,10 @@ function Home() {
 
   return (
     <>
-
+    
+      <Button> 
+      <Link to="/productos">Productos</Link>
+        </Button>
       <div className='main-container'>
         <div className='slider-container'>
           <div className='leftArrow' onClick={() => scrollToImage('ant')}>&#10094;</div>
@@ -58,60 +61,45 @@ function Home() {
           </div>
         </div>
       </div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <CardGroup>
       {
                 data.map((item) => {
                   return <li key={item.id}>
-                    <Card className="my-2">
-                      <CardImg
-                        alt="Producto"
-                        src={item.imgUrl}
-                        style={{
-                          height: 180
-                        }}
-                        width= '18rem'
-                      />
+                    <Card
+                      style={{
+                        width: '18rem'
+                      }}
+                    >
                       <CardBody>
                         <CardTitle tag="h5">
-                          Card Title
+                          Card title
                         </CardTitle>
-                        <CardText>
-                          This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        </CardText>
-                        <CardText>
-                          <small className="text-muted">
-                            Last updated 3 mins ago
-                          </small>
-                        </CardText>
+                        <CardSubtitle
+                          className="mb-2 text-muted"
+                          tag="h6"
+                        >
+                          Card subtitle
+                        </CardSubtitle>
+                      </CardBody>
+                      <img
+                        alt="Card cap"
+                        src={item.imgUrl}
+                        width="100%"
+                      />
+                      <CardBody>
+                        <CardText> a </CardText>
+                        <CardLink href="#">
+                        Mas detalle
+                        </CardLink>
                       </CardBody>
                     </Card>
                   </li>
                 })
               }
-      
-      <Card className="my-2">
-        <CardBody>
-          <CardTitle tag="h5">
-            Card Title
-          </CardTitle>
-          <CardText>
-            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-          </CardText>
-          <CardText>
-            <small className="text-muted">
-              Last updated 3 mins ago
-            </small>
-          </CardText>
-        </CardBody>
-        <CardImg
-          alt="Card image cap"
-          bottom
-          src="https://picsum.photos/900/180"
-          style={{
-            height: 180
-          }}
-          width="100%"
-        />
-        </Card>
+              </CardGroup>
       
     </>
   );
