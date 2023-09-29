@@ -47,7 +47,7 @@ img {
   left: 32px;
   font-size: 50px;
   font-weight: 700;
-  color: #af2b2b;
+  color: #dfd4bd;
   z-index: 1;
   cursor: pointer;
 }
@@ -59,7 +59,7 @@ img {
   right: 32px;
   font-size: 50px;
   font-weight: 700;
-  color: #ca3131;
+  color: #dfd4bd;
   z-index: 1;
   cursor: pointer;
 }
