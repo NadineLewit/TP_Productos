@@ -32,7 +32,7 @@ function DetalleProductos() {
         <center>
           <img
             alt="Card cap"
-            src={prod[0] && prod[0].imgUrl1}
+            src={prod[0] && prod[0].images[0]}
             width="20%"
             height="20%"
           />
@@ -41,18 +41,18 @@ function DetalleProductos() {
           {prod[0] && prod[0].precio}
           </div>
           <div style={ Texto}>
-          {prod[0] && prod[0].texto}
+          {prod[0] && prod[0].description}
           </div>
     
           <img
             alt="Card cap"
-            src={prod[0] && prod[0].imgUrl2}
+            src={prod[0] && prod[0].images[1]}
             width="300"
             height="370"
           />
           <img
             alt="Card cap"
-            src={prod[0] && prod[0].imgUrl3}
+            src={prod[0] && prod[0].images[2]}
             width="300"
             height="370"
           />

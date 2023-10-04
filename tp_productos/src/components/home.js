@@ -8,10 +8,12 @@ import { CardGroup, Card, CardBody, CardTitle, CardSubtitle, CardLink } from 're
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useProductos } from '../contextProductos';
 
 function Home() {
   const listRef = useRef();
   const [rand, setRand] = useState(0);
+  const { productosData } = useProductos([]);
 
   useEffect(() => {
     const listNode = listRef.current;
@@ -32,7 +34,7 @@ function Home() {
         return esPrimera ? 0 : act -1;
       })
     } else {
-      const esUltima = rand === data.length -1;
+      const esUltima = rand === productosData.length -1;
       if (!esUltima) {
         setRand(act => act + 1)
       }
@@ -60,7 +62,7 @@ function Home() {
           <div className='container-images'>
             <ul ref={listRef}>
               {
-                data.map((item) => {
+                productosData.map((item) => {
                   return <li key={item.id}>
                     <img src={item.imgUrl1} width={450} height={400} />
                   </li>
@@ -74,7 +76,7 @@ function Home() {
         <br></br>
       <CardGroup>
       {
-                data.map((item) => {
+                productosData.map((item) => {
                   return <li key={item.id}>
                     <center>
                     <Card
@@ -85,18 +87,18 @@ function Home() {
                       <CardBody>
                         
                         <CardTitle tag="h5">
-                          {item.nombre}
+                          {item.title}
                         </CardTitle>
                         <CardSubtitle
                           className="mb-2 text-muted"
                           tag="h6"
                         >
-                          {item.categoria}
+                          {item.category}
                         </CardSubtitle>
                       </CardBody>
                       <img
                         alt="Card cap"
-                        src={item.imgUrl1}
+                        src={item.images[0]}
                         width="100%"
                       />
                       <CardBody>
