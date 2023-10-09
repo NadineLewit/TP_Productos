@@ -5,26 +5,21 @@ import './styles.css'
 import Home from './components/home'
 import Productos from './components/productos'
 import DetalleProductos from './components/detalleProductos'
-import { ProductosProvider } from './contextProductos';
-
+import {MyContext} from "./MyContext"
 
 function App() {
-  
+  const [productosData, setProductosData] = useState([]);
 
   return (
-    <div>
-      <ProductosProvider>
+      <MyContext.Provider value={{productosData, setProductosData}}>
       <BrowserRouter>
           <Routes>
-
             <Route path="/" element={<Home />}></Route>
             <Route path="/productos" element={<Productos />}></Route>
             <Route path="/detalleProductos/:id" element={<DetalleProductos />}></Route>            
           </Routes>
         </BrowserRouter>
-        </ProductosProvider>
-    </div>
-    
+        </MyContext.Provider>
   );
 }
 

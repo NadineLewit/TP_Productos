@@ -1,25 +1,30 @@
 import 'bootstrap';
 import React, {  useState, useEffect } from 'react';
 import { Link, useParams } from "react-router-dom";
-import { data } from './data'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { MyContext } from '../MyContext';
+import {useContext} from 'react';
 
 function DetalleProductos() {
   const { id } = useParams();
-  console.log(id)
   const [prod, setProd] = useState([]);
+  const {productosData, setProductosData}=useContext(MyContext);
+
   
   useEffect(() => {
-    setProd(data.filter(d => d.id == id))
+    console.log(productosData)
   }, []);
+
+
+  
   return (
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand as={Link} to="/">Chanel</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">TP</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -30,32 +35,18 @@ function DetalleProductos() {
       </Container>
     </Navbar>
         <center>
-          <img
+          {productosData.filter(d => {if(d.id == id)
+          {console.log(d.images)}
+
+          })}
+          
+          
+          {/* <img
             alt="Card cap"
-            src={prod[0] && prod[0].images[0]}
+            src={prod.images[0]}
             width="20%"
             height="20%"
-          />
-          <div></div>
-          <div style={Precio}>
-          {prod[0] && prod[0].precio}
-          </div>
-          <div style={ Texto}>
-          {prod[0] && prod[0].description}
-          </div>
-    
-          <img
-            alt="Card cap"
-            src={prod[0] && prod[0].images[1]}
-            width="300"
-            height="370"
-          />
-          <img
-            alt="Card cap"
-            src={prod[0] && prod[0].images[2]}
-            width="300"
-            height="370"
-          />
+          /> */}
           </center>
       
     </>

@@ -1,21 +1,23 @@
-
+import axios from 'axios';
 import 'bootstrap';
 import { Link} from "react-router-dom";
 import React, {  useRef, useState, useEffect } from 'react';
-import { data } from './data'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CardGroup, Card, CardBody, CardTitle, CardSubtitle, CardLink } from 'reactstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useProductos } from '../contextProductos';
+import { MyContext } from '../MyContext';
+import {useContext} from 'react';
 
 function Home() {
   const listRef = useRef();
   const [rand, setRand] = useState(0);
-  const { productosData } = useProductos([]);
+  const {productosData, setProductosData}=useContext(MyContext);
 
+  
   useEffect(() => {
+    productos();
     const listNode = listRef.current;
     const img = listNode.querySelectorAll("li > img")[rand]
 
@@ -40,12 +42,24 @@ function Home() {
       }
     }
   }
+  const productos = () => {
+    axios.get('https://dummyjson.com/products')
+    .then(function (response) {
+        var prod = response.data.products;
+        setProductosData(prod)
+        console.log(productosData)
+      }
+    ) 
+    .catch(function (error) {
+      console.log("nao nao watafak");
+  });  
+  };
 
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand as={Link} to="/">Chanel</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">TP</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -61,12 +75,11 @@ function Home() {
           <div className='rightArrow' onClick={() => scrollToImage('post')}>&#10095;</div>
           <div className='container-images'>
             <ul ref={listRef}>
-              {
-                productosData.map((item) => {
-                  return <li key={item.id}>
-                    <img src={item.imgUrl1} width={450} height={400} />
+              {productosData.map((item) => {
+                  return( <li key={item.id}>
+                    <img src={item.images[0]} />
                   </li>
-                })
+               ); })
               }
             </ul>
           </div>
@@ -75,8 +88,7 @@ function Home() {
       <div>
         <br></br>
       <CardGroup>
-      {
-                productosData.map((item) => {
+      {productosData.map((item) => {
                   return <li key={item.id}>
                     <center>
                     <Card
