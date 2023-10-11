@@ -5,13 +5,13 @@ import './styles.css'
 import Home from './components/home'
 import Productos from './components/productos'
 import DetalleProductos from './components/detalleProductos'
-import {MyContext} from "./MyContext"
+import {ProductsProvider} from "./MyContext"
 
 function App() {
-  const [productosData, setProductosData] = useState([]);
 
   return (
-      <MyContext.Provider value={{productosData, setProductosData}}>
+    <div>
+      <ProductsProvider>
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />}></Route>
@@ -19,7 +19,8 @@ function App() {
             <Route path="/detalleProductos/:id" element={<DetalleProductos />}></Route>            
           </Routes>
         </BrowserRouter>
-        </MyContext.Provider>
+        </ProductsProvider>
+         </div>
   );
 }
 

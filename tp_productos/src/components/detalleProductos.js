@@ -5,21 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { MyContext } from '../MyContext';
-import {useContext} from 'react';
+import { useProductsData } from '../MyContext';
+
 
 function DetalleProductos() {
   const { id } = useParams();
   const [prod, setProd] = useState([]);
-  const {productosData, setProductosData}=useContext(MyContext);
-
-  
-  useEffect(() => {
-    console.log(productosData)
-  }, []);
+  const { productosData } = useProductsData();
 
 
-  
   return (
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -36,17 +30,16 @@ function DetalleProductos() {
     </Navbar>
         <center>
           {productosData.filter(d => {if(d.id == id)
-          {console.log(d.images)}
-
+          setProd(d)
           })}
           
           
-          {/* <img
+          <img
             alt="Card cap"
             src={prod.images[0]}
             width="20%"
             height="20%"
-          /> */}
+          />
           </center>
       
     </>

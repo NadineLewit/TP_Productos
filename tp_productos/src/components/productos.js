@@ -8,13 +8,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FormControl, Form } from 'react-bootstrap';
-import { MyContext } from '../MyContext';
-import {useContext} from 'react';
+import { useProductsData } from '../MyContext';
+
 
 function Home() {
-  const {productosData, setProductosData}=useContext(MyContext);
   const [dataFiltrada, setDataFiltrada] = useState(productosData);
   const [busqueda, setBusqueda] = useState('');
+  const { productosData } = useProductsData();
 
   const manejarBusqueda = (e) => {
     setBusqueda(e.target.value);
@@ -29,67 +29,67 @@ function Home() {
   };
   
   const ClickTodos = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "smartphones" || d.category == "laptops" || d.category == "fragrances" || d.category == "skincare" || d.category == "groceries" || d.category == "home-decoration" || d.category == "furniture" || d.category == "tops" || d.category == "womens-dresses" || d.category == "womens-shoes" || d.category == "mens-shirts" || d.category == "mens-shoes" || d.category == "mens-watches" || d.category == "womens-watches" || d.category == "womens-bags" || d.category == "womens-jewellery" || d.category == "sunglasses" || d.category == "automotive" || d.category == "motorcycle" || d.category == "lighting"));
+    setDataFiltrada(productosData.filter(d => d.category === "smartphones" || d.category === "laptops" || d.category === "fragrances" || d.category === "skincare" || d.category === "groceries" || d.category === "home-decoration" || d.category === "furniture" || d.category === "tops" || d.category === "womens-dresses" || d.category === "womens-shoes" || d.category === "mens-shirts" || d.category === "mens-shoes" || d.category === "mens-watches" || d.category === "womens-watches" || d.category === "womens-bags" || d.category === "womens-jewellery" || d.category === "sunglasses" || d.category === "automotive" || d.category === "motorcycle" || d.category === "lighting"));
   }
   const Click1 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "smartphones"));
+    setDataFiltrada(productosData.filter(d => d.category === "smartphones"));
   }
   const Click2 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "laptops"));
+    setDataFiltrada(productosData.filter(d => d.category === "laptops"));
   }
   const Click3 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "fragrances"));
+    setDataFiltrada(productosData.filter(d => d.category === "fragrances"));
   }
   const Click4 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "skincare"));
+    setDataFiltrada(productosData.filter(d => d.category === "skincare"));
   }
   const Click5 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "groceries"));
+    setDataFiltrada(productosData.filter(d => d.category === "groceries"));
   }
   const Click6 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "home-decoration"));
+    setDataFiltrada(productosData.filter(d => d.category === "home-decoration"));
   }
   const Click7 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "furniture"));
+    setDataFiltrada(productosData.filter(d => d.category === "furniture"));
   }
   const Click8 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "tops"));
+    setDataFiltrada(productosData.filter(d => d.category === "tops"));
   }
   const Click9 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "womens-dresses"));
+    setDataFiltrada(productosData.filter(d => d.category === "womens-dresses"));
   }
   const Click10 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "womens-shoes"));
+    setDataFiltrada(productosData.filter(d => d.category === "womens-shoes"));
   }
   const Click11 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "mens-shirts"));
+    setDataFiltrada(productosData.filter(d => d.category === "mens-shirts"));
   }
   const Click12 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "mens-shoes"));
+    setDataFiltrada(productosData.filter(d => d.category === "mens-shoes"));
   }
   const Click13 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "mens-watches"));
+    setDataFiltrada(productosData.filter(d => d.category === "mens-watches"));
   }
   const Click14 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "womens-watches"));
+    setDataFiltrada(productosData.filter(d => d.category === "womens-watches"));
   }
   const Click15 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "womens-bags"));
+    setDataFiltrada(productosData.filter(d => d.category === "womens-bags"));
   }
   const Click16 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "womens-jewellery"));
+    setDataFiltrada(productosData.filter(d => d.category === "womens-jewellery"));
   }
   const Click17 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "sunglasses"));
+    setDataFiltrada(productosData.filter(d => d.category === "sunglasses"));
   }
   const Click18 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "automotive"));
+    setDataFiltrada(productosData.filter(d => d.category === "automotive"));
   }
   const Click19 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "motorcycle"));
+    setDataFiltrada(productosData.filter(d => d.category === "motorcycle"));
   }
   const Click20 = () => {
-    setDataFiltrada(productosData.filter(d => d.category == "lighting"));
+    setDataFiltrada(productosData.filter(d => d.category === "lighting"));
   }
   
 

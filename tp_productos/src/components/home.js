@@ -7,17 +7,14 @@ import { CardGroup, Card, CardBody, CardTitle, CardSubtitle, CardLink } from 're
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { MyContext } from '../MyContext';
-import {useContext} from 'react';
+import { useProductsData } from '../MyContext';
 
 function Home() {
   const listRef = useRef();
   const [rand, setRand] = useState(0);
-  const {productosData, setProductosData}=useContext(MyContext);
+  const { productosData } = useProductsData();
 
-  
   useEffect(() => {
-    productos();
     const listNode = listRef.current;
     const img = listNode.querySelectorAll("li > img")[rand]
 
@@ -42,18 +39,7 @@ function Home() {
       }
     }
   }
-  const productos = () => {
-    axios.get('https://dummyjson.com/products')
-    .then(function (response) {
-        var prod = response.data.products;
-        setProductosData(prod)
-        console.log(productosData)
-      }
-    ) 
-    .catch(function (error) {
-      console.log("nao nao watafak");
-  });  
-  };
+
 
   return (
     <>
@@ -77,7 +63,7 @@ function Home() {
             <ul ref={listRef}>
               {productosData.map((item) => {
                   return( <li key={item.id}>
-                    <img src={item.images[0]} />
+                    <img src={item.images[0]} className="Imagen" />
                   </li>
                ); })
               }
