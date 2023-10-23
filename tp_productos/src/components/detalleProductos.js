@@ -12,37 +12,60 @@ function DetalleProductos() {
   const { id } = useParams();
   const [prod, setProd] = useState([]);
   const { productosData } = useProductsData();
+     
+  useEffect(() => {
+    // productosData.forEach((p) => {
+    //   if (p.id === id) {
+    //     console.log("si");
+    //     setProd(p)
+    //   }
+    // });
+    productosData.filter(d => 
+      {
+        if(d.id == id){
 
-
-  return (
-    <>
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand as={Link} to="/">TP</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-            <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-        <center>
-          {productosData.filter(d => {if(d.id == id)
           setProd(d)
-          })}
-          
-          
-          <img
-            alt="Card cap"
-            src={prod.images[0]}
-            width="20%"
-            height="20%"
-          />
-          </center>
-      
-    </>
+        }
+      }
+    )
+  }, [productosData])
+
+  
+  
+
+  /* productosData.filter(d => {if(d.id == id)
+    setProd(d)
+    }) */
+  return (
+
+    
+      <>
+        <Navbar expand="lg" className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand as={Link} to="/">TP</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+                <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        <center>
+        <h1>  {prod.title} </h1>
+        
+        <img
+
+          src={prod.images}
+        />
+
+        </center>
+        
+
+          </> 
+              
+    
   );
 }
 const Texto = {
