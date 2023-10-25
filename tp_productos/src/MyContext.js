@@ -12,7 +12,6 @@ useEffect(() => {
 async function fetchProductos() {
     try {
     const response = await axios.get('https://dummyjson.com/products')
-    
         var prod = response.data.products;
         setProductosData(prod)
     }

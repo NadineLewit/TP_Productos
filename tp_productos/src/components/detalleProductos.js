@@ -14,12 +14,6 @@ function DetalleProductos() {
   const { productosData } = useProductsData();
      
   useEffect(() => {
-    // productosData.forEach((p) => {
-    //   if (p.id === id) {
-    //     console.log("si");
-    //     setProd(p)
-    //   }
-    // });
     productosData.filter(d => 
       {
         if(d.id == id){
@@ -28,14 +22,12 @@ function DetalleProductos() {
         }
       }
     )
+
+    
   }, [productosData])
 
-  
-  
 
-  /* productosData.filter(d => {if(d.id == id)
-    setProd(d)
-    }) */
+
   return (
 
     
@@ -53,13 +45,27 @@ function DetalleProductos() {
           </Container>
         </Navbar>
         <center>
-        <h1>  {prod.title} </h1>
-        
+          {/* NO NOS DEJABA MAPEAR NO HACER .LENGHT */}
+        <div style={Precio}>
+          {prod.title} 
+          </div>
+          <p></p>
         <img
+            alt="Card cap"
+            src={prod.images}
+            width="20%"
+            height="20%"
+          />
+           <div style={Precio}>
+          Price: {prod.price}
+          </div>
+          <div style={ Texto}>
+            Desciption: {prod.description}
+          </div>
 
-          src={prod.images}
-        />
-
+          <div style={ Texto}>
+          Marca: {prod.brand}
+          </div>
         </center>
         
 
@@ -74,7 +80,7 @@ const Texto = {
   fontWeight: 'bold', 
   color: 'black', 
   marginTop: '70px',
-  marginBottom: '70px',
+  marginBottom: 'px',
   marginLeft: '400px',
   marginRight: '400px',
 };

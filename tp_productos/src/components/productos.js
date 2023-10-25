@@ -12,7 +12,7 @@ import { useProductsData } from '../MyContext';
 
 
 function Home() {
-  const [dataFiltrada, setDataFiltrada] = useState(productosData);
+  const [dataFiltrada, setDataFiltrada] = useState([]);
   const [busqueda, setBusqueda] = useState('');
   const { productosData } = useProductsData();
 
@@ -23,7 +23,7 @@ function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const resultadosBusqueda = productosData.filter((item) =>
-      item.nombre.toLowerCase().includes(busqueda.toLowerCase())
+      item.title.toLowerCase().includes(busqueda.toLowerCase())
     );
     setDataFiltrada(resultadosBusqueda);
   };
@@ -49,49 +49,7 @@ function Home() {
   const Click6 = () => {
     setDataFiltrada(productosData.filter(d => d.category === "home-decoration"));
   }
-  const Click7 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "furniture"));
-  }
-  const Click8 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "tops"));
-  }
-  const Click9 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "womens-dresses"));
-  }
-  const Click10 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "womens-shoes"));
-  }
-  const Click11 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "mens-shirts"));
-  }
-  const Click12 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "mens-shoes"));
-  }
-  const Click13 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "mens-watches"));
-  }
-  const Click14 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "womens-watches"));
-  }
-  const Click15 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "womens-bags"));
-  }
-  const Click16 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "womens-jewellery"));
-  }
-  const Click17 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "sunglasses"));
-  }
-  const Click18 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "automotive"));
-  }
-  const Click19 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "motorcycle"));
-  }
-  const Click20 = () => {
-    setDataFiltrada(productosData.filter(d => d.category === "lighting"));
-  }
-  
+
 
   return (
     <>
@@ -123,48 +81,6 @@ function Home() {
             </NavDropdown.Item>
             <NavDropdown.Item onClick={Click6}>
             home-decoration
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click7}>
-            furniture
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click8}>
-            tops
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click9}>
-            womens-dresses
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click10}>
-            womens-shoes
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click11}>
-            mens-shirts
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click12}>
-            mens-shoes
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click13}>
-            mens-watches
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click14}>
-            womens-watches
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click15}>
-            womens-bags
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click16}>
-            womens-jewellery
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click17}>
-            sunglasses
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click18}>
-            automotive
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click19}>
-            motorcycle
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={Click20}>
-            lighting
             </NavDropdown.Item>
             </NavDropdown>
           </Nav>
