@@ -25,7 +25,7 @@ function DetalleProductos() {
 
     
   }, [productosData])
-
+  console.log(prod.images)
 
 
   return (
@@ -57,7 +57,7 @@ function DetalleProductos() {
             height="20%"
           />
            <div style={Precio}>
-          Price: {prod.price}
+          Price: ${prod.price}
           </div>
           <div style={ Texto}>
             Desciption: {prod.description}
